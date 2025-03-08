@@ -1,8 +1,14 @@
-from PySide6.QtWidgets import QApplication, QWidget
-import sys
+from PySide6.QtWidgets import QApplication, QWidget # QT Imports
+import sys # To take in commandline args
 
 if __name__=="__main__":
+    # Wrapper for managing a QT application instance
     app = QApplication(sys.argv)
-    window = QWidget()
+
+    # Create a QWidget with a title bar text
+    window = QWidget(windowTitle="Hello QT")
+    
+    # Need to call this to show the QWidget
     window.show()
-    app.exec()
+    # To Keep the event loop for the QT application running
+    app.exec() 
