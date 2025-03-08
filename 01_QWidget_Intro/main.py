@@ -1,7 +1,7 @@
 from PySide6.QtWidgets import QApplication, QWidget # QT Imports
 import sys # To take in commandline args
 
-if __name__=="__main__":
+def main():
     # Wrapper for managing a QT application instance
     app = QApplication(sys.argv)
 
@@ -12,3 +12,6 @@ if __name__=="__main__":
     window.show()
     # To Keep the event loop for the QT application running
     app.exec() 
+
+if __name__=="__main__":
+    main()
