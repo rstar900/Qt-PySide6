@@ -16,7 +16,15 @@ class CustomMainWIndow(QMainWindow):
     def action2_pressed(self):
         print("Triggered Action2!")
         # Show a message on status bar with a timeout of 3 seconds (3000 milliseconds)
-        self.statusBar().showMessage("This message disappear in 3 seconds", 3000)            
+        self.statusBar().showMessage("This message disappear in 3 seconds", 3000) 
+
+    # Slot for Button's clicked signal (click event)
+    def button_pressed(self):
+        print("Button Pressed!")    
+
+    # Slot for Main Button's clicked signal (click event)
+    def main_button_pressed(self):
+        print("Main Button Pressed!")                
 
     def __init__(self, app):
         super().__init__()
@@ -76,7 +84,14 @@ class CustomMainWIndow(QMainWindow):
         # Add a button as well to the toolbar with a separator
         tool_bar.addSeparator()
         button = QPushButton("Click Me!")
-        tool_bar.addWidget(button) 
+        tool_bar.addWidget(button)
+        button.clicked.connect(self.button_pressed)
+
+        # Add a button in the main area of the window
+        main_button = QPushButton("Main Area")
+        main_button.setCheckable(True) # To be able to toggle its colour on clicks
+        self.setCentralWidget(main_button)
+        main_button.clicked.connect(self.main_button_pressed) 
 
         # Set the status tips for the tool bar's actions
         action1.setStatusTip("This is an arbitrary action")
